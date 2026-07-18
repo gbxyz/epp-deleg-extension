@@ -21,7 +21,7 @@ Extensible Provisioning Protocol (EPP) mapping for DELEG records
 </title>
 
 <seriesInfo
-  value="draft-brown-epp-deleg"
+  value="draft-brown-epp-deleg-01"
   stream="independent"
   status="informational"
   name="Internet-Draft"/>
@@ -78,14 +78,6 @@ The source for this draft, and an issue tracker, may can be found at <eref targe
 <t>
 The Internet-Draft "Extensible Delegation for DNS" (<xref target="I-D.dnsop-deleg"/>) aims to provide an enhanced method of delegation in the DNS, as an alternative to the traditional <tt>NS</tt> record.
 </t>
-
-<!--<t>
-This proposal has the potential to address many long-standing issues affecting the DNS. While it has yet to be brought to the IETF in a formal submission, it has generated significant interest.
-</t>
-
-<t>
-Past experience with innovations in the DNS suggests that the success or failure of a new technology can depend on how quickly the provisioning side of the domain name industry moves to support the new technology.
-</t> -->
 
 <t>
 <!-- Therefore, this document has been created to describe -->This document describes an extension to the EPP domain mapping (<xref target="RFC5731"/>) to allow EPP clients to provision <tt>DELEG</tt> records for domain names in an EPP server.
