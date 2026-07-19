@@ -139,8 +139,6 @@ The attributes in the <tt>&lt;deleg:params&gt;</tt> element are given exactly as
 
 </section>
 
-</section>
-
 <section>
 <name>Examples</name>
 
@@ -395,7 +393,7 @@ None
 
 <back>
 
-<displayreference target="I-D.dnsop-deleg" to="DELEG"/>
+<displayreference target="I-D.ietf-deleg" to="DELEG"/>
 
 <references><name>Normative References</name>
 
@@ -403,7 +401,6 @@ None
 <xi:include href="https://bib.ietf.org/public/rfc/bibxml/reference.RFC.3688.xml"/>
 <xi:include href="https://bib.ietf.org/public/rfc/bibxml/reference.RFC.7451.xml"/>
 <xi:include href="https://bib.ietf.org/public/rfc/bibxml/reference.RFC.8174.xml"/>
-<xi:include href="https://bib.ietf.org/public/rfc/bibxml/reference.RFC.9460.xml"/>
 <xi:include href="https://bib.ietf.org/public/rfc/bibxml-rfcsubseries/reference.STD.0069.xml"/>
 <xi:include href="https://bib.ietf.org/public/rfc/bibxml-ids/reference.I-D.ietf-deleg.xml"/>
 
