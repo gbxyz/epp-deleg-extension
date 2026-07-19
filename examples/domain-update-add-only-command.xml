@@ -10,10 +10,10 @@
     <extension>
       <deleg:update xmlns:deleg="urn:ietf:params:xml:ns:epp:deleg-0.01">
         <deleg:add>
-          <deleg:deleg priority="1" target="ns3.example.org">
+          <deleg:deleg>
             <deleg:params
-              ipv4hint="192.0.2.3"
-              ipv6hint="2001:DB8::3"/>
+              server-ipv4="192.0.2.1"
+              server-ipv6="2001:db8::1"/>
           </deleg:deleg>
         </deleg:add>
       </deleg:update>
