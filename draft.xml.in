@@ -76,18 +76,17 @@ The source for this draft, and an issue tracker, may can be found at <eref targe
 <name>Introduction</name>
 
 <t>
-The Internet-Draft "Extensible Delegation for DNS" (<xref target="I-D.dnsop-deleg"/>) aims to provide an enhanced method of delegation in the DNS, as an alternative to the traditional <tt>NS</tt> record.
+The Internet-Draft "Extensible Delegation for DNS" (<xref target="I-D.ietf-deleg"/>) describes an enhanced method of delegation in the DNS to supplement the traditional <tt>NS</tt> record.
 </t>
 
 <t>
-<!-- Therefore, this document has been created to describe -->This document describes an extension to the EPP domain mapping (<xref target="RFC5731"/>) to allow EPP clients to provision <tt>DELEG</tt> records for domain names in an EPP server.
+This document describes an extension to the EPP domain mapping (<xref target="RFC5731"/>) to allow EPP clients to provision <tt>DELEG</tt> records for domain names in an EPP server.
 </t>
 
 <t>
 EPP provides mechanisms for extending the protocol by (a) adding new properties to existing object mappings and (b) definining new object mappings.
 Although EPP supports two different models for traditional <tt>NS</tt> records (host attributes and host objects, as described in <xref section="1.12" sectionFormat="of" target="RFC5731"/>),
-this document only uses the former, and does not define a new object mapping for <tt>DELEG</tt> records because the <tt>DELEG</tt> specification itself implements many of the features that would otherwise require an object mapping:
-for example the "AliasMode" mode, which allows the delegation information for many domains to be managed as a single set.
+this document only uses the former, and does not define a new object mapping for <tt>DELEG</tt> records because the <tt>DELEG</tt> specification itself implements many of the features that would otherwise require an object mapping.
 </t>
 
 </section>
@@ -134,93 +133,32 @@ This document defines a new element, <tt>&lt;deleg:deleg&gt;</tt>, which appears
 
 <t>
 This element is a representation of a <tt>DELEG</tt> record in XML.
-Note that <tt>DELEG</tt> records have the same presentation format as <tt>SVCB</tt> records (<xref target="RFC9460"/>).
-</t>
-
-<t>
-The <tt>&lt;deleg:deleg&gt;</tt> element has the following attributes:
-</t>
-
-<ul>
-
-<li>
-a <tt>priority</tt> attribute, which is an integer that corresponds to the <tt>SvcPriority</tt> field;
-</li>
-
-<li>
-a <tt>target</tt> attribute, which corresponds to the <tt>TargetName</tt> field.
-</li>
-
-</ul>
-
-<t>
-The <tt>&lt;deleg:deleg&gt;</tt> element <bcp14>MAY</bcp14> have a single child element, <tt>&lt;deleg:params&gt;</tt>, which corresponds to the <tt>svcParams</tt> field.
-<tt>DELEG</tt> record SvcParams are mapped onto this element's attributes, with <tt>SvcParamKey</tt> being the attribute name, and <tt>SvcParamValue</tt> being its value.
+The <tt>&lt;deleg:deleg&gt;</tt> element <bcp14>MAY</bcp14> have a single child element, <tt>&lt;deleg:params&gt;</tt>, which corresponds to the <tt>DelegInfos</tt> field of a <tt>DELEG</tt> record.
+The attributes in the <tt>&lt;deleg:params&gt;</tt> element are given exactly as the display format for the <tt>DelegInfos</tt> field decribed in <xref target="I-D.ietf-deleg"/>.
 </t>
 
 </section>
 
-<!--
-<section>
-<name>Restrictions on Element Values</name>
-
-<ol>
-
-<li>
-To avoid infinite loops, if the <tt>priority</tt> attribute of a <tt>&lt;deleg:deleg&gt;</tt> record is zero, the <tt>target</tt> attribute <bcp14>MUST NOT</bcp14> match the domain name or any subordinate name,
-for example, a <tt>&lt;deleg:deleg&gt;</tt> element for the domain <tt>example.com</tt> <bcp14>MUST NOT</bcp14> have a <tt>target</tt> attribute equal to <tt>example.com</tt>, <tt>subdomain.example.com</tt>, etc.
-</li>
-
-<li>
-If the <tt>priority</tt> attribute of a <tt>&lt;deleg:deleg&gt;</tt> record is non-zero, then the <tt>target</tt> attribute <bcp14>MAY</bcp14> match the domain name or any subordinate name,
-but <bcp14>MUST</bcp14> have a <tt>&lt;deleg:params&gt;</tt> child element which <bcp14>MUST</bcp14> contain an <tt>ipv4hint</tt> attribute and/or an <tt>ipv6hint</tt> attribute.
-</li>
-
-<li>
-EPP servers <bcp14>MUST</bcp14> accept any <tt>&lt;deleg:params&gt;</tt> attribute which is registered in the DNS Service Bindings (SVCB) registry (<xref section="14.3" sectionFormat="of" target="RFC9460"/>),
-but <bcp14>MAY</bcp14> accept additional attribute names according to server policy.
-</li>
-
-</ol>
-
-<t>
-EPP servers <bcp14>MUST</bcp14> reject <tt>&lt;create&gt;</tt> and <tt>&lt;update&gt;</tt> commands containing <tt>&lt;deleg:deleg&gt;</tt> that do not conform to these restrictions with a 2005 "Parameter value syntax error" result code.
-</t>
-
-<t>
-<xref section="2.4.2" sectionFormat="of" target="RFC9460"/> states that the use of SvcParams in AliasMode records is currently not defined, but that a future specification may extend AliasMode records to include SvcParams.
-Therefore EPP servers <bcp14>MAY</bcp14> reject commands which contain <tt>&lt;deleg:deleg&gt;</tt> elements which have a <tt>priority</tt> attribute equal to zero,
-and a child <tt>&lt;deleg:params&gt;</tt> element, with a 2306 "Parameter value policy error" result code.
-</t>
-
 </section>
-
--->
 
 <section>
 <name>Examples</name>
 
 <t>
-Example "AliasMode" <tt>&lt;deleg:deleg&gt;</tt> element:
+Examples of the <tt>&lt;deleg:deleg&gt;</tt> element:
 </t>
 
 <sourcecode><![CDATA[
-<deleg:deleg
-  priority="0"
-  target="config.example.net"/>
-]]></sourcecode>
-
-<t>
-Example "ServiceMode" <tt>&lt;deleg:deleg&gt;</tt> element:
-</t>
-
-<sourcecode><![CDATA[
-<deleg:deleg
-  priority="1"
-  target="ns1.example.com">
+<deleg:deleg>
   <deleg:params
-    ipv4hint="192.0.2.1"
-    ipv6hint="2001:DB8::1"/>
+    server-ipv4="192.0.2.1"
+    server-ipv6="2001:db8::1"/>
+</deleg:deleg>
+
+<deleg:deleg>
+  <deleg:params
+    server-name="ns2.example.net."
+    server-name="ns3.example.org."/>
 </deleg:deleg>
 ]]></sourcecode>
 
@@ -467,7 +405,7 @@ None
 <xi:include href="https://bib.ietf.org/public/rfc/bibxml/reference.RFC.8174.xml"/>
 <xi:include href="https://bib.ietf.org/public/rfc/bibxml/reference.RFC.9460.xml"/>
 <xi:include href="https://bib.ietf.org/public/rfc/bibxml-rfcsubseries/reference.STD.0069.xml"/>
-<xi:include href="https://bib.ietf.org/public/rfc/bibxml-ids/reference.I-D.dnsop-deleg.xml"/>
+<xi:include href="https://bib.ietf.org/public/rfc/bibxml-ids/reference.I-D.ietf-deleg.xml"/>
 
 </references>
 
