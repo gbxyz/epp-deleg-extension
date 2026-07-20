@@ -298,7 +298,7 @@ The formal syntax presented here is a complete schema representation of the exte
 
 <t>
 This document uses URNs to describe XML namespaces and XML schemas conforming to a registry mechanism described in <xref target="RFC3688"/>.
-The following URI assignment has been made by IANA:
+The following URI assignments are requested of IANA:
 </t>
 
 <t>
@@ -342,7 +342,7 @@ See the "<xref target="formal-syntax" format="title"/>" section of this document
 <name>EPP Extension Registry</name>
 
 <t>
-The EPP extension described in this document has been registered by the IANA in the Extensions for the "Extensible Provisioning Protocol (EPP)" registry described in <xref target="RFC7451"/>.
+The EPP extension described in this document will be registered by the IANA in the Extensions for the "Extensible Provisioning Protocol (EPP)" registry described in <xref target="RFC7451"/>.
 The details of the registration are as follows:
 </t>
 
@@ -385,6 +385,24 @@ Active
 None
 </t>
 
+</section>
+
+</section>
+
+<section title="Change Log">
+
+<section title="01">
+<ul>
+<li>Add this section.</li>
+<li>Updates to reflect the current state of <xref target="I-D.ietf-deleg"/>.</li>
+<li>Example updates.</li>
+</ul>
+</section>
+
+<section title="00">
+<ul>
+<li>Initial version.</li>
+</ul>
 </section>
 
 </section>
