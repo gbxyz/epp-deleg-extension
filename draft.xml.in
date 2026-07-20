@@ -273,7 +273,7 @@ Therefore, EPP servers <bcp14>SHOULD</bcp14> allow clients to configure domain n
 <section>
 <name>Security Considerations</name>
 
-<t>Under the initial design of the <tt>DELEG</tt> record, the security implications of propoerly carrying the record in EPP,
+<t>Under the initial design of the <tt>DELEG</tt> record, the security implications of properly carrying the record in EPP,
 and name servers using such information in zones, are similar to the security implications for <tt>NS</tt> records.
 If there are later extensions to the <tt>DELEG</tt> record, those extension may have different security considerations that will need to be documented.</t>
 
