@@ -26,8 +26,7 @@
         </deleg:deleg>
         <deleg:deleg>
           <deleg:params
-            server-name="ns2.example.net."
-            server-name="ns3.example.org."/>
+            server-name="ns2.example.net.,ns3.example.org."/>
         </deleg:deleg>
       </deleg:infData>
     </extension>
