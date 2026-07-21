@@ -8,7 +8,7 @@
   xmlns:xi="http://www.w3.org/2001/XInclude"
   version="3"
   ipr="trust200902"
-  docName="draft-brown-epp-deleg-01"
+  docName="draft-brown-epp-deleg-02"
   submissionType="independent"
   category="info"
   xml:lang="en"
@@ -21,7 +21,7 @@ Extensible Provisioning Protocol (EPP) mapping for DELEG records
 </title>
 
 <seriesInfo
-  value="draft-brown-epp-deleg-01"
+  value="draft-brown-epp-deleg-02"
   stream="independent"
   status="informational"
   name="Internet-Draft"/>
@@ -139,14 +139,14 @@ The attributes in the <tt>&lt;deleg:params&gt;</tt> element are given exactly as
 
 </section>
 
-<section>
+<section anchor="examples">
 <name>Examples</name>
 
 <t>
 Examples of the <tt>&lt;deleg:deleg&gt;</tt> element:
 </t>
 
-<sourcecode><![CDATA[
+<sourcecode type="xml"><![CDATA[
 <deleg:deleg>
   <deleg:params
     server-ipv4="192.0.2.1"
@@ -155,8 +155,7 @@ Examples of the <tt>&lt;deleg:deleg&gt;</tt> element:
 
 <deleg:deleg>
   <deleg:params
-    server-name="ns2.example.net."
-    server-name="ns3.example.org."/>
+    server-name="ns2.example.net.,ns3.example.org."/>
 </deleg:deleg>
 ]]></sourcecode>
 
@@ -184,7 +183,7 @@ This element <bcp14>MAY</bcp14> contain one or more <tt>&lt;deleg:deleg&gt;</tt>
 Example <tt>&lt;info&gt;</tt> response:
 </t>
 
-<sourcecode><xi:include parse="text" href="examples/domain-info-response.xml.txt"/></sourcecode>
+<sourcecode type="xml"><xi:include parse="text" href="examples/domain-info-response.xml.txt"/></sourcecode>
 
 </section>
 
@@ -209,7 +208,7 @@ This element <bcp14>MUST</bcp14> contain one or more <tt>&lt;deleg:deleg&gt;</tt
 Example <tt>&lt;create&gt;</tt> command:
 </t>
 
-<sourcecode><xi:include parse="text" href="examples/domain-create-command.xml.txt"/></sourcecode>
+<sourcecode type="xml"><xi:include parse="text" href="examples/domain-create-command.xml.txt"/></sourcecode>
 
 </section>
 
@@ -237,19 +236,19 @@ The <tt>&lt;deleg:update&gt;</tt> element has the following child elements:
 Example <tt>&lt;update&gt;</tt> command, which removes one <tt>&lt;deleg:deleg&gt;</tt> record and adds another:
 </t>
 
-<sourcecode><xi:include parse="text" href="examples/domain-update-command.xml.txt"/></sourcecode>
+<sourcecode type="xml"><xi:include parse="text" href="examples/domain-update-command.xml.txt"/></sourcecode>
 
 <t>
 Example <tt>&lt;update&gt;</tt> command, which removes one <tt>&lt;deleg:deleg&gt;</tt> record but does not add any:
 </t>
 
-<sourcecode><xi:include parse="text" href="examples/domain-update-rem-only-command.xml.txt"/></sourcecode>
+<sourcecode type="xml"><xi:include parse="text" href="examples/domain-update-rem-only-command.xml.txt"/></sourcecode>
 
 <t>
 Example <tt>&lt;update&gt;</tt> command, which adds one <tt>&lt;deleg:deleg&gt;</tt> record but does not remove any:
 </t>
 
-<sourcecode><xi:include parse="text" href="examples/domain-update-add-only-command.xml.txt"/></sourcecode>
+<sourcecode type="xml"><xi:include parse="text" href="examples/domain-update-add-only-command.xml.txt"/></sourcecode>
 
 </section>
 
@@ -286,7 +285,7 @@ If there are later extensions to the <tt>DELEG</tt> record, those extension may 
 The formal syntax presented here is a complete schema representation of the extension suitable for automated validation of EPP XML instances.
 </t>
 
-<sourcecode><xi:include parse="text" href="deleg-&VERSION;.xsd"/></sourcecode>
+<sourcecode type="xml"><xi:include parse="text" href="deleg-&VERSION;.xsd"/></sourcecode>
 
 </section>
 
@@ -390,6 +389,13 @@ None
 </section>
 
 <section title="Change Log" removeInRFC="true">
+
+<section title="02">
+<ul>
+<li>Fixed examples in <xref target="examples"/>.</li>
+<li>Added <tt>type="xml"</tt> to all <tt>&lt;sourcecode&gt;</tt> elements.</li>
+</ul>
+</section>
 
 <section title="01">
 <ul>

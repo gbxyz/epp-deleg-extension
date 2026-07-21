@@ -1,4 +1,4 @@
-VERSION = 01
+VERSION = 02
 DOC = "draft-brown-epp-deleg-$(VERSION)"
 XML = "$(DOC).xml"
 
