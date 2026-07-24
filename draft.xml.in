@@ -148,19 +148,28 @@ A <tt>&lt;deleg:deleg&gt;</tt> element <bcp14>MUST NOT</bcp14> contain two or mo
 <name>Examples</name>
 
 <t>
-Examples of the <tt>&lt;deleg:deleg&gt;</tt> element:
+Examples of the <tt>&lt;deleg:deleg&gt;</tt> element with parameters which have values:
 </t>
 
 <sourcecode type="xml"><![CDATA[
 <deleg:deleg>
-  <deleg:params
-    server-ipv4="192.0.2.1"
-    server-ipv6="2001:db8::1"/>
+  <deleg:param name="server-ipv4">192.0.2.1</deleg:param>
+  <deleg:param name="server-ipv6">2001:db8::1</deleg:param>
 </deleg:deleg>
 
 <deleg:deleg>
-  <deleg:params
-    server-name="ns2.example.net.,ns3.example.org."/>
+  <deleg:param name="server-name">
+    ns2.example.net.,ns3.example.org.</deleg:param>
+</deleg:deleg>
+]]></sourcecode>
+
+<t>
+Example of a <tt>&lt;deleg:deleg&gt;</tt> element with a parameter which has no value:
+</t>
+
+<sourcecode type="xml"><![CDATA[
+<deleg:deleg>
+  <deleg:param name="no-do53"/>
 </deleg:deleg>
 ]]></sourcecode>
 
