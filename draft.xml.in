@@ -8,7 +8,7 @@
   xmlns:xi="http://www.w3.org/2001/XInclude"
   version="3"
   ipr="trust200902"
-  docName="draft-brown-epp-deleg-02"
+  docName="draft-brown-epp-deleg-03"
   submissionType="independent"
   category="info"
   xml:lang="en"
@@ -21,7 +21,7 @@ Extensible Provisioning Protocol (EPP) mapping for DELEG records
 </title>
 
 <seriesInfo
-  value="draft-brown-epp-deleg-02"
+  value="draft-brown-epp-deleg-03"
   stream="independent"
   status="informational"
   name="Internet-Draft"/>
@@ -403,6 +403,12 @@ None
 </section>
 
 <section title="Change Log" removeInRFC="true">
+
+<section title="03">
+<ul>
+<li>New syntax for parameters; namespace URI version bump.</li>
+</ul>
+</section>
 
 <section title="02">
 <ul>
