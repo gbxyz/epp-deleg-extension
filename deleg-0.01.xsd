@@ -40,8 +40,6 @@
       <element name="params" type="deleg:paramType"
         minOccurs="0"/>
     </sequence>
-    <attribute name="priority" type="unsignedShort"/>
-    <attribute name="target" type="eppcom:labelType"/>
   </complexType>
 
   <complexType name="paramType">
