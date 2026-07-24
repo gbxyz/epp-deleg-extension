@@ -245,7 +245,7 @@ The <tt>&lt;deleg:update&gt;</tt> element has the following child elements:
 
 <ul>
   <li>An <bcp14>OPTIONAL</bcp14> <tt>&lt;deleg:add&gt;</tt> element, containing any <tt>&lt;deleg:deleg&gt;</tt> records to be added to the domain; and</li>
-  <li>An <bcp14>OPTIONAL</bcp14> <tt>&lt;deleg:rem&gt;</tt> element, containing any <tt>&lt;deleg:deleg&gt;</tt> records to be removed from the domain.</li>
+  <li>An <bcp14>OPTIONAL</bcp14> <tt>&lt;deleg:rem&gt;</tt> element, which contains (1) any <tt>&lt;deleg:deleg&gt;</tt> records to be removed from the domain or (2) an empty <tt>&lt;deleg:all/&gt;</tt> element, indicating that all records should be removed.</li>
 </ul>
 
 <t>
@@ -259,6 +259,12 @@ Example <tt>&lt;update&gt;</tt> command, which removes one <tt>&lt;deleg:deleg&g
 </t>
 
 <sourcecode type="xml"><xi:include parse="text" href="examples/domain-update-rem-only-command.xml.txt"/></sourcecode>
+
+<t>
+Example <tt>&lt;update&gt;</tt> command, which removes all <tt>&lt;deleg:deleg&gt;</tt> records but does not add any:
+</t>
+
+<sourcecode type="xml"><xi:include parse="text" href="examples/domain-update-rem-all-command.xml.txt"/></sourcecode>
 
 <t>
 Example <tt>&lt;update&gt;</tt> command, which adds one <tt>&lt;deleg:deleg&gt;</tt> record but does not remove any:
@@ -409,6 +415,7 @@ None
 <section title="03">
 <ul>
 <li>New syntax for parameters; namespace URI version bump.</li>
+<li>Add <tt>&lt;deleg:all/&gt;</tt> in <tt>&lt;deleg:rem/&gt;</tt>.</li>
 </ul>
 </section>
 

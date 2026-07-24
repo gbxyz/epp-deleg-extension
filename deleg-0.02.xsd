@@ -22,7 +22,7 @@
     <sequence>
       <element name="add" type="deleg:containerType"
         minOccurs="0"/>
-      <element name="rem" type="deleg:containerType"
+      <element name="rem" type="deleg:remContainerType"
         minOccurs="0"/>
     </sequence>
   </complexType>
@@ -32,6 +32,18 @@
       <element name="deleg" type="deleg:delegType"
         minOccurs="1" maxOccurs="unbounded"/>
     </sequence>
+  </complexType>
+
+  <complexType name="remAllType"/>
+
+  <complexType name="remContainerType">
+    <choice>
+      <element name="all" type="deleg:remAllType"/>
+      <sequence>
+        <element name="deleg" type="deleg:delegType"
+          minOccurs="1" maxOccurs="unbounded"/>
+      </sequence>
+    </choice>
   </complexType>
 
   <complexType name="delegType">
