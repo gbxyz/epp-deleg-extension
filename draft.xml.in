@@ -189,8 +189,10 @@ This extension defines an additional element for EPP <tt>&lt;info&gt;</tt> respo
 </t>
 
 <t>
-When a server receives a domain or host <tt>&lt;info&gt;</tt> command from a client which included the extension namespace in the <tt>&lt;svcExtension&gt;</tt> element of the <tt>&lt;login&gt;</tt> command, the response <bcp14>MUST</bcp14> contain an <tt>&lt;extension&gt;</tt> element, which <bcp14>MUST</bcp14> contain a <tt>&lt;deleg:infData&gt;</tt> element.
-This element <bcp14>MAY</bcp14> contain one or more <tt>&lt;deleg:deleg&gt;</tt> elements as described in <xref target="extension-elements"/>.
+When a server receives a domain or host <tt>&lt;info&gt;</tt> command from a client which included the extension namespace in the <tt>&lt;svcExtension&gt;</tt> element of the <tt>&lt;login&gt;</tt> command,
+the response <bcp14>MAY</bcp14> contain an <tt>&lt;extension&gt;</tt> element,
+which <bcp14>MAY</bcp14> contain a <tt>&lt;deleg:infData&gt;</tt> element.
+This element <bcp14>MUST</bcp14> contain one or more <tt>&lt;deleg:deleg&gt;</tt> elements as described in <xref target="extension-elements"/>.
 </t>
 
 <t>
