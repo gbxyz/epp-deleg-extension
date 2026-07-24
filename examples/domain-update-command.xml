@@ -8,19 +8,17 @@
       </domain:update>
     </update>
     <extension>
-      <deleg:update xmlns:deleg="urn:ietf:params:xml:ns:epp:deleg-0.01">
+      <deleg:update xmlns:deleg="urn:ietf:params:xml:ns:epp:deleg-0.02">
         <deleg:add>
           <deleg:deleg>
-            <deleg:params
-              server-ipv4="192.0.2.1"
-              server-ipv6="2001:db8::1"/>
+            <deleg:param name="server-ipv4">192.0.2.2</deleg:param>
+            <deleg:param name="server-ipv6">2001:db8::2</deleg:param>
           </deleg:deleg>
         </deleg:add>
         <deleg:rem>
           <deleg:deleg>
-            <deleg:params
-              server-ipv4="192.0.2.1"
-              server-ipv6="2001:db8::1"/>
+            <deleg:param name="server-ipv4">192.0.2.1</deleg:param>
+            <deleg:param name="server-ipv6">2001:db8::1</deleg:param>
           </deleg:deleg>
         </deleg:rem>
       </deleg:update>
