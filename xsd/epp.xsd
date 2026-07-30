@@ -4,5 +4,5 @@
   <import namespace="urn:ietf:params:xml:ns:epp-1.0"        schemaLocation="epp-1.0.xsd" />
   <import namespace="urn:ietf:params:xml:ns:domain-1.0"     schemaLocation="domain-1.0.xsd" />
   <import namespace="urn:ietf:params:xml:ns:host-1.0"       schemaLocation="host-1.0.xsd" />
-  <import namespace="urn:ietf:params:xml:ns:epp:deleg-0.1"  schemaLocation="../deleg-0.01.xsd" />
+  <import namespace="urn:ietf:params:xml:ns:epp:deleg-0.2"  schemaLocation="../deleg-0.02.xsd" />
 </schema>

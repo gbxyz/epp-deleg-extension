@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schema
   xmlns="http://www.w3.org/2001/XMLSchema"
-  targetNamespace="urn:ietf:params:xml:ns:epp:deleg-0.01"
-  xmlns:deleg="urn:ietf:params:xml:ns:epp:deleg-0.01"
+  targetNamespace="urn:ietf:params:xml:ns:epp:deleg-0.02"
+  xmlns:deleg="urn:ietf:params:xml:ns:epp:deleg-0.02"
   xmlns:eppcom="urn:ietf:params:xml:ns:eppcom-1.0"
   elementFormDefault="qualified">
   <annotation>
@@ -22,7 +22,7 @@
     <sequence>
       <element name="add" type="deleg:containerType"
         minOccurs="0"/>
-      <element name="rem" type="deleg:containerType"
+      <element name="rem" type="deleg:remContainerType"
         minOccurs="0"/>
     </sequence>
   </complexType>
@@ -30,21 +30,42 @@
   <complexType name="containerType">
     <sequence>
       <element name="deleg" type="deleg:delegType"
-        minOccurs="0"
-        maxOccurs="unbounded"/>
+        minOccurs="1" maxOccurs="unbounded"/>
     </sequence>
+  </complexType>
+
+  <complexType name="remAllType"/>
+
+  <complexType name="remContainerType">
+    <choice>
+      <element name="all" type="deleg:remAllType"/>
+      <sequence>
+        <element name="deleg" type="deleg:delegType"
+          minOccurs="1" maxOccurs="unbounded"/>
+      </sequence>
+    </choice>
   </complexType>
 
   <complexType name="delegType">
     <sequence>
-      <element name="params" type="deleg:paramType"
-        minOccurs="0"/>
+      <element name="param" type="deleg:paramType"
+        minOccurs="1" maxOccurs="unbounded"/>
     </sequence>
-    <attribute name="priority" type="unsignedShort"/>
-    <attribute name="target" type="eppcom:labelType"/>
   </complexType>
 
+  <simpleType name="paramNameType">
+    <restriction base="NMTOKEN">
+      <pattern value="[a-z0-9-]+"/>
+    </restriction>
+  </simpleType>
+
   <complexType name="paramType">
-    <anyAttribute processContents="skip"/>
+    <simpleContent>
+      <extension base="token">
+        <attribute name="name"
+          type="deleg:paramNameType"
+          use="required"/>
+      </extension>
+    </simpleContent>
   </complexType>
 </schema>

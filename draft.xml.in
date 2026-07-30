@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <!DOCTYPE rfc [
-<!ENTITY VERSION "0.01">
+<!ENTITY VERSION "0.02">
 ]>
 
 <rfc
   xmlns:xi="http://www.w3.org/2001/XInclude"
   version="3"
   ipr="trust200902"
-  docName="draft-brown-epp-deleg-02"
+  docName="draft-brown-epp-deleg-03"
   submissionType="independent"
   category="info"
   xml:lang="en"
@@ -21,7 +21,7 @@ Extensible Provisioning Protocol (EPP) mapping for DELEG records
 </title>
 
 <seriesInfo
-  value="draft-brown-epp-deleg-02"
+  value="draft-brown-epp-deleg-03"
   stream="independent"
   status="informational"
   name="Internet-Draft"/>
@@ -133,8 +133,13 @@ This document defines a new element, <tt>&lt;deleg:deleg&gt;</tt>, which appears
 
 <t>
 This element is a representation of a <tt>DELEG</tt> record in XML.
-The <tt>&lt;deleg:deleg&gt;</tt> element <bcp14>MAY</bcp14> have a single child element, <tt>&lt;deleg:params&gt;</tt>, which corresponds to the <tt>DelegInfos</tt> field of a <tt>DELEG</tt> record.
-The attributes in the <tt>&lt;deleg:params&gt;</tt> element are given exactly as the display format for the <tt>DelegInfos</tt> field decribed in <xref target="I-D.ietf-deleg"/>.
+The <tt>&lt;deleg:deleg&gt;</tt> element correspond to the <tt>DelegInfos</tt> field of a <tt>DELEG</tt> record.
+It contains one or more <tt>&lt;deleg:param&gt;</tt> child elements, which each represent the DelegInfo key=value pairs of the <tt>DELEG</tt> record.
+</t>
+
+<t>
+A <tt>&lt;deleg:param&gt;</tt> element <bcp14>MUST</bcp14> have the "<tt>name</tt>" attribute which identifies the DelegInfoKey, and <bcp14>MAY</bcp14> contain a DelegInfoValue which contains the value in presentation format.
+A <tt>&lt;deleg:deleg&gt;</tt> element <bcp14>MUST NOT</bcp14> contain two or more <tt>&lt;deleg:param&gt;</tt> elements with the same "<tt>name</tt>" attribute.
 </t>
 
 </section>
@@ -143,19 +148,28 @@ The attributes in the <tt>&lt;deleg:params&gt;</tt> element are given exactly as
 <name>Examples</name>
 
 <t>
-Examples of the <tt>&lt;deleg:deleg&gt;</tt> element:
+Examples of the <tt>&lt;deleg:deleg&gt;</tt> element with parameters which have values:
 </t>
 
 <sourcecode type="xml"><![CDATA[
 <deleg:deleg>
-  <deleg:params
-    server-ipv4="192.0.2.1"
-    server-ipv6="2001:db8::1"/>
+  <deleg:param name="server-ipv4">192.0.2.1</deleg:param>
+  <deleg:param name="server-ipv6">2001:db8::1</deleg:param>
 </deleg:deleg>
 
 <deleg:deleg>
-  <deleg:params
-    server-name="ns2.example.net.,ns3.example.org."/>
+  <deleg:param name="server-name">
+    ns2.example.net.,ns3.example.org.</deleg:param>
+</deleg:deleg>
+]]></sourcecode>
+
+<t>
+Example of a <tt>&lt;deleg:deleg&gt;</tt> element with a parameter which has no value:
+</t>
+
+<sourcecode type="xml"><![CDATA[
+<deleg:deleg>
+  <deleg:param name="no-do53"/>
 </deleg:deleg>
 ]]></sourcecode>
 
@@ -175,8 +189,10 @@ This extension defines an additional element for EPP <tt>&lt;info&gt;</tt> respo
 </t>
 
 <t>
-When a server receives a domain or host <tt>&lt;info&gt;</tt> command from a client which included the extension namespace in the <tt>&lt;svcExtension&gt;</tt> element of the <tt>&lt;login&gt;</tt> command, the response <bcp14>MUST</bcp14> contain an <tt>&lt;extension&gt;</tt> element, which <bcp14>MUST</bcp14> contain a <tt>&lt;deleg:infData&gt;</tt> element.
-This element <bcp14>MAY</bcp14> contain one or more <tt>&lt;deleg:deleg&gt;</tt> elements as described in <xref target="extension-elements"/>.
+When a server receives a domain or host <tt>&lt;info&gt;</tt> command from a client which included the extension namespace in the <tt>&lt;svcExtension&gt;</tt> element of the <tt>&lt;login&gt;</tt> command,
+the response <bcp14>MAY</bcp14> contain an <tt>&lt;extension&gt;</tt> element,
+which <bcp14>MAY</bcp14> contain a <tt>&lt;deleg:infData&gt;</tt> element.
+This element <bcp14>MUST</bcp14> contain one or more <tt>&lt;deleg:deleg&gt;</tt> elements as described in <xref target="extension-elements"/>.
 </t>
 
 <t>
@@ -229,7 +245,7 @@ The <tt>&lt;deleg:update&gt;</tt> element has the following child elements:
 
 <ul>
   <li>An <bcp14>OPTIONAL</bcp14> <tt>&lt;deleg:add&gt;</tt> element, containing any <tt>&lt;deleg:deleg&gt;</tt> records to be added to the domain; and</li>
-  <li>An <bcp14>OPTIONAL</bcp14> <tt>&lt;deleg:rem&gt;</tt> element, containing any <tt>&lt;deleg:deleg&gt;</tt> records to be removed from the domain.</li>
+  <li>An <bcp14>OPTIONAL</bcp14> <tt>&lt;deleg:rem&gt;</tt> element, which contains (1) any <tt>&lt;deleg:deleg&gt;</tt> records to be removed from the domain or (2) an empty <tt>&lt;deleg:all/&gt;</tt> element, indicating that all records should be removed.</li>
 </ul>
 
 <t>
@@ -243,6 +259,12 @@ Example <tt>&lt;update&gt;</tt> command, which removes one <tt>&lt;deleg:deleg&g
 </t>
 
 <sourcecode type="xml"><xi:include parse="text" href="examples/domain-update-rem-only-command.xml.txt"/></sourcecode>
+
+<t>
+Example <tt>&lt;update&gt;</tt> command, which removes all <tt>&lt;deleg:deleg&gt;</tt> records but does not add any:
+</t>
+
+<sourcecode type="xml"><xi:include parse="text" href="examples/domain-update-rem-all-command.xml.txt"/></sourcecode>
 
 <t>
 Example <tt>&lt;update&gt;</tt> command, which adds one <tt>&lt;deleg:deleg&gt;</tt> record but does not remove any:
@@ -389,6 +411,13 @@ None
 </section>
 
 <section title="Change Log" removeInRFC="true">
+
+<section title="03">
+<ul>
+<li>New syntax for parameters; namespace URI version bump.</li>
+<li>Add <tt>&lt;deleg:all/&gt;</tt> in <tt>&lt;deleg:rem/&gt;</tt>.</li>
+</ul>
+</section>
 
 <section title="02">
 <ul>
