@@ -286,7 +286,7 @@ It is anticpated that most domains will need both <tt>DELEG</tt> and traditional
 </t>
 
 <t>
-Therefore, EPP servers <bcp14>SHOULD</bcp14> allow clients to configure domain names to have both <tt>DELEG</tt> records and host objects or host attributes.
+Therefore, EPP servers <bcp14>SHOULD</bcp14> allow clients to configure domain names to have both <tt>DELEG</tt> records and <xref target="RFC5732">host objects</xref> or host attributes (see <xref target="RFC5731" sectionFormat="of" section="1.1"/>).
 </t>
 
 </section>
