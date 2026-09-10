@@ -14,6 +14,9 @@ test: lint
 
 	@find examples -name '*.xml' -print \( -exec xmllint --noout --schema xsd/epp.xsd {} \; -or -quit \)
 
+	@echo "Testing inline examples..."
+	@./lint-inline-examples.pl
+
 xml: test
 	@echo "Compiling XML file..."
 
