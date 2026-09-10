@@ -156,7 +156,9 @@ Examples of the <tt>&lt;deleg:deleg&gt;</tt> element with parameters which have 
   <deleg:param name="server-ipv4">192.0.2.1</deleg:param>
   <deleg:param name="server-ipv6">2001:db8::1</deleg:param>
 </deleg:deleg>
+]]></sourcecode>
 
+<sourcecode type="xml"><![CDATA[
 <deleg:deleg>
   <deleg:param name="server-name">
     ns2.example.net.,ns3.example.org.</deleg:param>
