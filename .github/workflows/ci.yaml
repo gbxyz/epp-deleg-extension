@@ -1,0 +1,22 @@
+name: test
+
+on:
+  push:
+    branches:
+     - main
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - run: sudo apt -qqq update
+
+      - run: sudo apt -qqq install libxml2-utils xml2rfc
+
+      - run: make
