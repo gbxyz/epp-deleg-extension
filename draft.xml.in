@@ -160,6 +160,12 @@ Examples of the <tt>&lt;deleg:deleg&gt;</tt> element with parameters which have 
 
 <sourcecode type="xml"><![CDATA[
 <deleg:deleg>
+  <deleg:param name="server-ipv4">192.0.2.1,192.0.2.53</deleg:param>
+</deleg:deleg>
+]]></sourcecode>
+
+<sourcecode type="xml"><![CDATA[
+<deleg:deleg>
   <deleg:param name="server-name">
     ns2.example.net.,ns3.example.org.</deleg:param>
 </deleg:deleg>
