@@ -165,6 +165,13 @@ Examples of the <tt>&lt;deleg:deleg&gt;</tt> element with parameters which have 
 </deleg:deleg>
 ]]></sourcecode>
 
+<sourcecode type="xml"><![CDATA[
+<deleg:deleg>
+  <deleg:param name="secure-transport">adot</deleg:param>
+  <deleg:param name="mandatory">secure-transport</deleg:param>
+</deleg:deleg>
+]]></sourcecode>
+
 <t>
 Example of a <tt>&lt;deleg:deleg&gt;</tt> element with a parameter which has no value:
 </t>
