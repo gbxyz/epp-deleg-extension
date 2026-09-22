@@ -30,7 +30,14 @@
   <complexType name="containerType">
     <sequence>
       <element name="deleg" type="deleg:delegType"
-        minOccurs="1" maxOccurs="unbounded"/>
+        minOccurs="1" maxOccurs="unbounded">
+
+        <unique name="DelegInfoKeyMustBeUnique">
+          <selector xpath="deleg:param"/>
+          <field xpath="@name"/>
+        </unique>
+
+      </element>
     </sequence>
   </complexType>
 
