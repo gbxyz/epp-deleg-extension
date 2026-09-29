@@ -306,6 +306,14 @@ Therefore, EPP servers <bcp14>SHOULD</bcp14> allow clients to configure domain n
 
 </section>
 
+<section anchor="op-cons">
+<name>Operational Considerations</name>
+
+<t>Servers <bcp14>MUST</bcp14> reject commands which contain <tt>&lt;deleg:param&gt;</tt> elements whose "<tt>name</tt>" elements are unknown, or whose contents are syntactically invalid.</t>
+<t>Both servers and clients <bcp14>MUST</bcp14> periodically update the list of registered DelegInfoKeys in the DELEG Delegation Information registry to ensure that newly-added values can be used.</t>
+
+</section>
+
 <section>
 <name>Security Considerations</name>
 
@@ -431,6 +439,7 @@ None
 <ul>
 <li>New syntax for parameters; namespace URI version bump.</li>
 <li>Add <tt>&lt;deleg:all/&gt;</tt> in <tt>&lt;deleg:rem/&gt;</tt>.</li>
+<li>Added <xref target="op-cons"/>.</li>
 </ul>
 </section>
 
