@@ -2,14 +2,12 @@
 
 <!DOCTYPE rfc [
 <!ENTITY XSD_VERSION "0.02">
-<!ENTITY DOC_VERSION "03">
 ]>
 
 <rfc
   xmlns:xi="http://www.w3.org/2001/XInclude"
   version="3"
   ipr="trust200902"
-  docName="draft-brown-epp-deleg-&DOC_VERSION;"
   submissionType="independent"
   category="info"
   xml:lang="en"
@@ -22,10 +20,8 @@ Extensible Provisioning Protocol (EPP) mapping for DELEG records
 </title>
 
 <seriesInfo
-  value="draft-brown-epp-deleg-&DOC_VERSION;"
-  stream="independent"
-  status="informational"
-  name="Internet-Draft"/>
+  name="Internet-Draft"
+  value="draft-brown-epp-deleg-03"/>
 
 <author initials="G." surname="Brown" fullname="Gavin Brown">
 <organization>ICANN</organization>
