@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <!DOCTYPE rfc [
-<!ENTITY VERSION "0.02">
+<!ENTITY XSD_VERSION "0.02">
 ]>
 
 <rfc
@@ -330,7 +330,7 @@ If there are later extensions to the <tt>DELEG</tt> record, those extension may 
 The formal syntax presented here is a complete schema representation of the extension suitable for automated validation of EPP XML instances.
 </t>
 
-<sourcecode type="xml"><xi:include parse="text" href="deleg-&VERSION;.xsd"/></sourcecode>
+<sourcecode type="xml"><xi:include parse="text" href="deleg-&XSD_VERSION;.xsd"/></sourcecode>
 
 </section>
 
@@ -350,7 +350,7 @@ Registration for the DELEG namespace:
 </t>
 
 <t>
-<strong>URI:</strong> <tt>urn:ietf:params:xml:ns:epp:deleg-&VERSION;</tt>
+<strong>URI:</strong> <tt>urn:ietf:params:xml:ns:epp:deleg-&XSD_VERSION;</tt>
 </t>
 
 <t>
@@ -367,7 +367,7 @@ Registration for the DELEG XML schema:
 
 <t>
 <strong>URI:</strong>
-<tt>urn:ietf:params:xml:schema:epp:deleg-&VERSION;</tt>
+<tt>urn:ietf:params:xml:schema:epp:deleg-&XSD_VERSION;</tt>
 </t>
 
 <t>
