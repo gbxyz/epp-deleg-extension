@@ -1,6 +1,4 @@
-VERSION = 02
-DOC = "draft-brown-epp-deleg-$(VERSION)"
-XML = "$(DOC).xml"
+DOC = $(shell xq -x //seriesInfo/@value draft.xml.in)
 
 all: html
 
@@ -24,11 +22,11 @@ xml: test
 	@find examples -name '*-command.xml.txt' -exec sed -i "" "s/^/C:/g" {} \;
 	@find examples -name '*-response.xml.txt' -exec sed -i "" "s/^/S:/g" {} \;
 
-	@xmllint --xinclude "draft.xml.in" > "$(XML)" 2>/dev/null || true
+	@xmllint --xinclude "draft.xml.in" > "$(DOC).xml" 2>/dev/null || true
 
 html: xml
 	@echo "Generating HTML file..."
-	@xml2rfc --html "$(XML)"
+	@xml2rfc --html "$(DOC).xml"
 
 clean:
 	@echo "Cleaning up..."
